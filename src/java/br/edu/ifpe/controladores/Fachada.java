@@ -10,6 +10,7 @@ import br.edu.ifpe.negocio.Cliente;
 import br.edu.ifpe.negocio.Pet;
 import br.edu.ifpe.negocio.Servico;
 import br.edu.ifpe.negocio.TipoAnimal;
+import br.edu.ifpe.negocio.TipoServico;
 import br.edu.ifpe.persistencia.comportamentos.RepositorioGenerico;
 import br.edu.ifpe.persistencia.implementacoes.FactoryRepositorios;
 import java.util.List;
@@ -26,6 +27,8 @@ public class Fachada {
     private RepositorioGenerico<Cliente, Integer> repositorioCliente = null;
     private RepositorioGenerico<Pet, Integer> repositorioPet = null;
     private RepositorioGenerico<Servico, Integer> repositorioServico = null;
+    private RepositorioGenerico<TipoServico, Integer> repositorioTipoServico = null;
+
 
     private Fachada() {
         this.repositorioTipoAnimal = FactoryRepositorios.fabricarRepositorio(
@@ -40,6 +43,7 @@ public class Fachada {
         this.repositorioCliente = FactoryRepositorios.fabricarRepositorio(FactoryRepositorios.CLIENTE, FactoryRepositorios.BANCODADOS);
         this.repositorioPet = FactoryRepositorios.fabricarRepositorio(FactoryRepositorios.PET, FactoryRepositorios.BANCODADOS);
         this.repositorioServico = FactoryRepositorios.fabricarRepositorio(FactoryRepositorios.SERVICO, FactoryRepositorios.BANCODADOS);
+        this.repositorioTipoServico = FactoryRepositorios.fabricarRepositorio(FactoryRepositorios.TIPOSERVICO, FactoryRepositorios.BANCODADOS);
 
     }
 
@@ -227,6 +231,29 @@ public class Fachada {
     public List<TipoAnimal> recuperarTodosTipoAnimalBD() {
         return DaoManagerHiber.getInstance().recover("from TipoAnimal");
     }
+    public void inserirTipoServicoBD(TipoServico t) {
+        DaoManagerHiber.getInstance().persist(t);
+    }
 
+    public void alterarTipoServicoBD(TipoServico t) {
+        DaoManagerHiber.getInstance().update(t);
+    }
+
+    public TipoServico recuperarTipoServicoBD(Integer g) {
+        try {
+            return (TipoServico) DaoManagerHiber.getInstance().recover("from TipoServico where codigo=" + g);
+        } catch (IndexOutOfBoundsException e) {
+            return null;
+
+        }
+    }
+
+    public void excluirTipoServicoBD(TipoServico t) {
+        DaoManagerHiber.getInstance().delete(t);
+    }
+
+    public List<TipoServico> recuperarTodosTipoServicoBD() {
+        return DaoManagerHiber.getInstance().recover("from Servico");
+    }
     
 }

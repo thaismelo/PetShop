@@ -46,6 +46,9 @@ public class FactoryRepositorios {
                     return new RepositorioServicoBD();
                 case CLIENTE:
                     return new RepositorioClienteBD();
+                    
+                case TIPOSERVICO:
+                    return new RepositorioTipoServicoBD();
                 default:
                     break;
             }
