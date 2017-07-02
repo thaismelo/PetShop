@@ -34,6 +34,8 @@ public class Cliente {
     private List<Pet> pets;
     @Column
     private String email;
+    
+    public Cliente(){}
 
     public Cliente(long cpf, String nome, String endereco, String telefoneContato, List<Pet> pets, String email) {
         this.cpf = cpf;

@@ -17,7 +17,7 @@ import javax.persistence.Table;
  */
 
 @Entity
-@Table(name="tipo_servico")
+@Table(name = "tipoServico")
 public class TipoServico {
     @Id
     @GeneratedValue
@@ -36,7 +36,8 @@ public class TipoServico {
         this.valor = valor;
         this.descricao = descricao;
     }
-
+    public TipoServico(){}
+    
     public int getCodigo() {
         return codigo;
     }

@@ -35,6 +35,8 @@ public class Pet {
     private Date dataNascimento;
     @Column
     private String descricao;
+    
+    public Pet(){}
 
     public Pet(int codigo, String nome, TipoAnimal tipo, Date dataNascimento, String descricao) {
         this.codigo = codigo;
@@ -42,11 +44,6 @@ public class Pet {
         this.tipo = tipo;
         this.dataNascimento = dataNascimento;
         this.descricao = descricao;
-    }
-    
-    @Deprecated
-    public Pet(){
-        
     }
 
     public int getCodigo() {

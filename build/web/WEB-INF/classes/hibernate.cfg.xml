@@ -4,7 +4,7 @@
   <session-factory>
     <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
     <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
-    <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/petshop</property>
+    <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/petShop</property>
     <property name="hibernate.connection.username">thais</property>
     <property name="hibernate.connection.password">thaismelo99</property>
     <mapping class="br.edu.ifpe.negocio.TipoServico"/>

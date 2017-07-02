@@ -33,6 +33,8 @@ public class Servico {
     private List<TipoServico> servicos;
     @Temporal(TemporalType.DATE)
     private Date dataRealizacao;
+    
+    public Servico(){}
 
     public Servico(int codigo, Pet pet, List<TipoServico> servicos, Date dataRealizacao) {
         this.codigo = codigo;

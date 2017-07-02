@@ -26,6 +26,8 @@ public class TipoAnimal {
     private String tipo;
     @Column
     private String descricao;
+    
+    public TipoAnimal(){}
 
     public TipoAnimal(int codigo, String tipo, String descricao) {
         this.codigo = codigo;

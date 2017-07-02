@@ -20,6 +20,17 @@ import javax.faces.bean.SessionScoped;
 @SessionScoped
 public class TipoServicoController {
     RepositorioGenerico<TipoServico, Integer> repositorioTipoServico= null;
+    private TipoServico selected = null;
+    private TipoServico alterando = null;
+   
+
+    public TipoServico getSelected() {
+        return selected;
+    }
+
+    public void setSelected(TipoServico selected) {
+        this.selected = selected;
+    }
     
     public TipoServicoController(){
         this.repositorioTipoServico = FactoryRepositorios.fabricarRepositorio(FactoryRepositorios.TIPOSERVICO, FactoryRepositorios.BANCODADOS);
@@ -27,19 +38,33 @@ public class TipoServicoController {
     
     public String inserir(TipoServico t){
         this.repositorioTipoServico.inserir(t);
-        return "index.html";
+        return "ApresentarTipoServico.xhtml";
     }
-     public void alterar(TipoServico tipoAnimal) {
-        this.repositorioTipoServico.alterar(tipoAnimal);
+    
+    public String alterar() {
+        this.alterando= this.selected;
+        return "CadastroTipoServico.xhtml";
+
+     }
+
+    public TipoServico getAlterando() {
+        return alterando;
+    }
+
+    public void setAlterando(TipoServico alterando) {
+        this.alterando = alterando;
     }
 
     public TipoServico recuperarTipoServico(int codigo) {
         return this.repositorioTipoServico.recuperar(codigo);
     }
 
-    public void excluir(TipoServico tipoAnimal) {
-        this.repositorioTipoServico.excluir(tipoAnimal);
+    public void excluir(TipoServico t) {
+        this.repositorioTipoServico.excluir(t);
     }
+    
+    
+    
 
     public List<TipoServico> recuperarTodosTipoServico() {
         return this.repositorioTipoServico.recuperarTodos();
