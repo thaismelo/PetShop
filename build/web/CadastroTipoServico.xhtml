@@ -9,20 +9,23 @@
     </h:head>
     <h:body>
         <h:form id="FormTipoServico">
+            <p:messages/>
             <ui:include src="Menu.xhtml"/>
             <p:fieldset legend="Cadastro do Tipo de Serviço">
-                <p:panelGrid columns="2">
+                <p:panelGrid columns="3">
                     <h:outputText value="Tipo de Serviço"/>
-                    <p:inputText value="#{builderTipoServico.tipo}"/>
+                    <p:inputText id="tipo" value="#{builderTipoServico.tipo}" required="true" requiredMessage="Tipo é obrigatorio!"/>
+                    <p:message for="tipo"/>
                     <h:outputText value="Valor"/>
-                    <p:inputText value="#{builderTipoServico.valor}"/>
+                    <p:inputText id="valor" value="#{builderTipoServico.valor}" required="true" requiredMessage="Valor é obrigatorio!"/>
+                    <p:message for="valor"/>
                     <h:outputText value="Descrição"/>
                     <p:editor value="#{builderTipoServico.descricao}"/>
-                    
+
                 </p:panelGrid>
                 <p:commandButton value="Cadastrar" action="#{tipoServicoController.inserir(builderTipoServico.buildTipoServico())}" />
             </p:fieldset>
-            
+
         </h:form>
     </h:body>
 </html>

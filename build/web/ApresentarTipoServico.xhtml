@@ -9,9 +9,9 @@
         <title>Facelet Title</title>
     </h:head>
     <h:body>
-        <form id="ForTipoServico">
+        <h:form id="Form">
             <ui:include src="Menu.xhtml"/>
-            <p:dataTable id="tabelaTipoServico" value="#{tipoServicoController.recuperarTodosTipoServico()}"
+            <p:dataTable id="tabela" value="#{tipoServicoController.recuperarTodosTipoServico()}"
                          var="tipoServico" selectionMode="single" selection="#{tipoServicoController.selected}" rowKey="#{tipoServico.codigo}">
                 <f:facet name="header">
                     <h:outputText value="Apresentar Tipos de Serviços"/>
@@ -33,12 +33,12 @@
                 </p:column>
                 
                 <f:facet name="footer">
-                    <p:commandButton value="Alterar" action="#{tipoServicoController.alterar()}"/>
-                    <p:commandButton value="Remover"  oncomplete=":ForTipoServico:tabelaTipoServico" action="#{tipoServicoController.excluir(tipoServicoController.selected)}"/>
-                    <p:commandButton value="Atualizar" oncomplete=":ForTipoServico:tabelaTipoServico"/>  
+                    <p:commandButton value="Alterar" action="AlterarTipoServico.xhtml"/>
+                    <p:commandButton value="Remover"  update=":Form:tabela" action="#{tipoServicoController.excluir(tipoServicoController.selected)}"/>
+                    <p:commandButton value="Atualizar" oncomplete=":Form:tabela"/>  
                 </f:facet>
             </p:dataTable>
-        </form>
+        </h:form>
     </h:body>
 </html>
 
